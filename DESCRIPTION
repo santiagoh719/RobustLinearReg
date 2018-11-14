@@ -1,0 +1,12 @@
+Package: RobustLinealReg
+Type: Package
+Title: Robust Lineal Regressions
+Version: 0.1.0
+Author: Hurtado I. Santiago
+Maintainer: Hurtado I. Santiago <santih@carina.unlp.edu.ar>
+Description: This package compute two Robust Lineal Regressions both base on the median of the slopes.
+License: GPL-3
+Depends: R (>= 3.1.0)
+ByteCompile: yes
+Encoding: UTF-8
+LazyData: true
