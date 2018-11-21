@@ -1,0 +1,79 @@
+
+---
+title: "Robust Lineal Regression"
+author: "Santiago I. Hurtado"
+date: "`r Sys.Date()`"
+output: 
+    rmarkdown::html_vignette
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Instaling the package:
+This package compute two Robust Lineal Regressions both base on the median of the slopes. To install the package first install devtools and then this package:
+
+```{r, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("santiagoh719/RobustLinealReg")
+```
+
+# The functions:
+The function `theil_sen_regression()` compute linear regression using the Theil–Sen estimator (Theil 1950 and Sen 1968) base on the median of the slopes.
+The function `siegel_regression()` compute linear regression using the repeated median estimator for the slope, propouse by Siegel (1982).
+Both functions are define for 2D dimetional points $(y_i,x_i)$, where $Y$ is the dependent coordinate and $X$ is the independent coordinate. The linear regression has the form: $ y = b + m \times x $ as any linear regression, but the parameters $b$ and $m$ are not estimated with least squars.
+`theil_sen_regression()` estimate the parameters in the following way:
+
+ \[ m = median((y_j-y_i)/(x_j-x_i)) \]
+ \[ b = median(y_i - m \times x_i) \]
+
+`siegel_regression()` estimate the parameters in the following way:
+
+ \[ m = median_i(median_j((y_j-y_i)/(x_j-x_i))) \]
+ \[  b = median_i(median_j((x_jy_i-x_iy_j)/(x_j-x_i)))  \]
+
+The main difference between both method is that `siegel_regression()` is less sensitive to outliers in the data.
+
+# Examples:
+```{r, include = FALSE}
+library(RobustLinealReg)
+library(ggplot2)
+library(reshape2)
+
+```
+
+Theil Sen Regression:
+```{r}
+# Create data with an slope an outliers
+set.seed(1)
+x <- 1:300
+y <- runif(300,-10,10) + x * 0.2
+ind_outlier <- round(runif(30,1,300)) # create 20 indexes for the outliers
+y[ind_outlier] <- y[ind_outlier] + runif(30,40,300) # generate the outlier
+
+# Compute normal linear regression and Theil Sen regression
+linear <- lm(y~x)
+theil_sen <- theil_sen_regression(y~x)
+
+data <- data.frame(y=y,x=x)
+data1 <- data.frame(x=x,linear = linear$coefficients[2]*x + linear$coefficients[1],
+                   Theil_sen = theil_sen$coefficients[2]*x + theil_sen$coefficients[1])
+data1 <- melt(data1,id='x')
+graf <- ggplot() + geom_point(data=data, aes(y=y, x=x),size=0.4)
+graf <- graf + geom_line(data=data1, aes(y=value, colour=variable,x=x))
+graf + scale_colour_manual(values=c("green","red")) + labs(colour = 'Model')
+
+```
+
+It can be seen that the Theil Sen regression is less sensitive to outliers than the normal linear regression.
+
+
+# Reference:
+
+Sen, Pranab Kumar (1968), "Estimates of the regression coefficient based on Kendall's tau", Journal of the American Statistical Association, 63 (324): 1379–1389, doi:10.2307/2285891
+
+
+Siegel, Andrew F. (1982), "Robust regression using repeated medians", Biometrika, 69 (1): 242–244, doi:10.1093/biomet/69.1.242
+
+
+Theil, H. (1950), "A rank-invariant method of linear and polynomial regression analysis. I, II, III", Nederl. Akad. Wetensch., Proc., 53: 386–392, 521–525, 1397–1412.
