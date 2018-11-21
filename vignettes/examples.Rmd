@@ -1,4 +1,3 @@
-
 ---
 title: "Robust Lineal Regression"
 author: "Santiago I. Hurtado"
