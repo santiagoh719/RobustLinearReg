@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output: 
     rmarkdown::html_vignette
 vignette: >
+  %\VignetteIndexEntry{examples}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
