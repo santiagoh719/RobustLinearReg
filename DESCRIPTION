@@ -7,6 +7,8 @@ Maintainer: Hurtado I. Santiago <santih@carina.unlp.edu.ar>
 Description: This package compute two Robust Lineal Regressions both base on the median of the slopes.
 License: GPL-3
 Depends: R (>= 3.1.0)
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
 ByteCompile: yes
 Encoding: UTF-8
 LazyData: true
