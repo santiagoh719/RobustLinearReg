@@ -4,7 +4,7 @@
 
 \title{Theil Sen Regression}
 \description{
-  Compute Theil Sen Regression and Repeated Medians Regresison (Siegel)
+  Compute Theil Sen Regression and Repeated Medians Regression (Siegel)
 }
 \usage{
   theil_sen_regression(formula, data = NULL)
@@ -26,8 +26,8 @@
 
 \details{
   \code{theil_sen_regression} compute linear regression using the Theil–Sen estimator base on the median of the slopes.
-  \code{siegel_regression} compute linear regression using the repeated median estimator for the slope, propouse by Siegel (1982).
-  The main diference is that \code{siegel_regression} is less sensitive to outliers in the data.
+  \code{siegel_regression} compute linear regression using the repeated median estimator for the slope, propose by Siegel (1982).
+  The main difference is that \code{siegel_regression} is less sensitive to outliers in the data.
 }
 
 \examples{
