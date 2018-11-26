@@ -1,5 +1,5 @@
 # RobustLinealReg
-This package compute two Robust Lineal Regressions both base on the median of the slopes.
+This package compute two Robust Linear Regressions both base on the median of the slopes.
 
 To install the package run:
 
