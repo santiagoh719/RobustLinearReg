@@ -11,7 +11,7 @@ vignette: >
 ---
 
 # Instaling the package:
-This package compute two Robust Lineal Regressions both base on the median of the slopes. To install the package first install devtools and then this package:
+This package compute two Robust Linear Regressions both base on the median of the slopes. To install the package first install devtools and then this package:
 
 ```{r, eval = FALSE}
 # install.packages("devtools")
@@ -20,8 +20,8 @@ devtools::install_github("santiagoh719/RobustLinealReg")
 
 # The functions:
 The function `theil_sen_regression()` compute linear regression using the Theil–Sen estimator (Theil 1950 and Sen 1968) base on the median of the slopes.
-The function `siegel_regression()` compute linear regression using the repeated median estimator for the slope, propouse by Siegel (1982).
-Both functions are define for 2D dimetional points $(y_i,x_i)$, where $Y$ is the dependent coordinate and $X$ is the independent coordinate. The linear regression has the form: $ y = b + m \times x $ as any linear regression, but the parameters $b$ and $m$ are not estimated with least squars.
+The function `siegel_regression()` compute linear regression using the repeated median estimator for the slope, propose by Siegel (1982).
+Both functions are define for 2D dimensional points $(y_i,x_i)$, where $Y$ is the dependent coordinate and $X$ is the independent coordinate. The linear regression has the form: $ y = b + m \times x $ as any linear regression, but the parameters $b$ and $m$ are not estimated with least squares.
 `theil_sen_regression()` estimate the parameters in the following way:
 
  \[ m = median((y_j-y_i)/(x_j-x_i)) \]
@@ -44,7 +44,7 @@ library(reshape2)
 
 Theil Sen Regression:
 ```{r}
-# Create data with an slope an outliers
+# Create data with an slope and outliers
 set.seed(1)
 x <- 1:300
 y <- runif(300,-10,10) + x * 0.2
