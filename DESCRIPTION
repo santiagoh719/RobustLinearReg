@@ -3,7 +3,7 @@ Type: Package
 Title: Robust Linear Regressions
 Version: 1.2.0
 Author: Hurtado I. Santiago
-Maintainer: Hurtado I. Santiago <santih@carina.unlp.edu.ar>
+Maintainer: Hurtado I. Santiago <santih@carina.fcaglp.unlp.edu.ar>
 Description: This package compute two Robust Linear Regressions both base on the median of the slopes.
 License: file LICENSE
 Depends: R (>= 3.1.0)
