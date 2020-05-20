@@ -31,12 +31,15 @@
 }
 
 \examples{
-
-  x <- runif(100,30,40)*t/100
+  # create x axis (t)
   t <- 1:100
-  x[c(10,12,76,34,21)] <- x[c(10,12,76,34,21)] + 30
+  # create values that follow a linear relation with the x axis
+  x <- rnorm(100,35,4)*t/100
+  # add some outliers
+  x[c(10,12,76,34,21)] <- x[c(10,12,76,34,21)] + 40
   model <- theil_sen_regression(x~t)
   lm_model <- lm(x~t)
+  # compare linear regression with theil_sen_regression
   plot(x~t)
   abline(model,col='blue')
   abline(lm_model,col='red')
