@@ -44,3 +44,9 @@
   abline(model,col='blue')
   abline(lm_model,col='red')
 }
+
+\references{
+- Theil, H., 1992. A rank-invariant method of linear and polynomial regression analysis. In: Henri Theil’s contributions to economics and econometrics. Springer, pp. 345–381. URL https://doi.org/10.1007/978-94-011-2546-8_20
+
+- Sen, P. K., 1968. Estimates of the regression coefficient based on kendall’s tau. Journal of the American statistical association 63 (324), 1379–1389.
+}
