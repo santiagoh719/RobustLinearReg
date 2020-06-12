@@ -3,4 +3,8 @@ This package compute two Robust Linear Regressions both base on the median of th
 
 To install the package run:
 
+install.packages("RobustLinearReg")
+
+To install the unstable version:
+
 devtools::install_github('santiagoh719/RobustLinearReg')
